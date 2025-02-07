@@ -3,6 +3,12 @@ public class Main {
         System.out.println(fib(6));
         System.out.println(factorial(5));
         System.out.println(digsum(1234));
+        System.out.println("");
+        System.out.println(reverseString("hello my name is maya"));
+        System.out.println(reverseString("hello"));
+
+        ispalindrome("hello my name is maya");
+        ispalindrome("racecar");
     }
 
     public static int factorial(int n) {
@@ -10,11 +16,12 @@ public class Main {
             return 1;
         }
 
-        return n*factorial(n-1);
+        return n * factorial(n - 1);
 
 
     }
-    public static int fib(int n){
+
+    public static int fib(int n) {
         /*int fibn = first + second;
         first = second;
         second = fibn;
@@ -28,13 +35,11 @@ public class Main {
 
         if (n == 0) {
             return 0;
-        }
-        else if (n == 1) {
+        } else if (n == 1) {
             return 1;
-        }
-        else{
+        } else {
 
-            return fib(n-1) + fib(n-2);
+            return fib(n - 1) + fib(n - 2);
         }
     }
 
@@ -48,7 +53,37 @@ public class Main {
         if (n == 0) {
             return 0;
         }
-        return n%10 + digsum((n-n%10)/10);
+        return n % 10 + digsum((n - n % 10) / 10);
     }
+
+    public static String reversedString = "";
+    public static String reverseString(String string) {
+
+
+
+        if (string.length() <= 0) {
+            reversedString = "";
+            return "";
+
+        }
+
+        reverseString(string.substring(1));
+
+        reversedString += (string.charAt(0));
+
+        return reversedString;
+    }
+    public static boolean ispalindrome(String string) {
+        if (reverseString(string).equals(string)) {
+            System.out.println("\"" + string + "\" is a pallindrome!");
+            return true;
+        }
+        else {
+            System.out.println("\"" + string + "\" is not a pallindrome!");
+            return false;
+        }
+    }
+
+
 
 }
